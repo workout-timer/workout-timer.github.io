@@ -18,7 +18,7 @@ git checkout gh-pages
 cp build/* ./
 rm -rf build
 git add .
-git commit -am "deploying master/$hash"
+git commit -am "deploying master@$hash"
 
 # if we're in a travis build, decrypt and use the deploy key (otherwise just
 # rely on some existing authentication)
