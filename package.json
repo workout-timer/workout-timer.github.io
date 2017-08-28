@@ -1,0 +1,19 @@
+{
+  "name": "rowing-timer",
+  "version": "1.0.0",
+  "description": "QUADS OF THE GODS",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/aaronj1335/rowing-timer.git"
+  },
+  "author": "Aaron Stacy",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/aaronj1335/rowing-timer/issues"
+  },
+  "homepage": "https://github.com/aaronj1335/rowing-timer#readme"
+}

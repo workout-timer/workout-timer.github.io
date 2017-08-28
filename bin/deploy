@@ -1,0 +1,33 @@
+#!/bin/bash -ex
+
+if [ $TRAVIS_PULL_REQUEST = false ] || [ $TRAVIS_BRANCH != master ]; then
+  echo not deploying since this isn\'t the master branch
+  exit
+fi
+
+# fake build step
+mkdir build
+cp src/* build/
+
+echo deploying
+
+hash=`git rev-parse --short HEAD`
+
+git checkout gh-pages
+cp build/* ./
+rm -rf build
+git add .
+git commit -am "deploying master/$hash"
+
+openssl aes-256-cbc \
+  -K $encrypted_a85afbccab54_key \
+  -iv $encrypted_a85afbccab54_iv \
+  -in rowing-timer-deploy.enc \
+  -out rowing-timer-deploy \
+  -d
+chmod 600 rowing-timer-deploy
+eval `ssh-agent -s`
+ssh-add rowing-timer-deploy
+
+git remote -v
+git push origin gh-pages
