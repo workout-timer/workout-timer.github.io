@@ -42,3 +42,8 @@ fi
 
 git remote -v
 git push origin gh-pages
+
+# reset to master
+if ! [ $CI ]; then
+  git checkout master
+fi
