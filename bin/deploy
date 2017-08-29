@@ -14,6 +14,8 @@ echo deploying
 
 hash=`git rev-parse --short HEAD`
 
+cp rowing-timer-deploy.enc /tmp
+
 git fetch origin gh-pages
 git checkout FETCH_HEAD
 cp -r build/* ./
@@ -34,7 +36,7 @@ if [ $TRAVIS ]; then
   openssl aes-256-cbc \
     -K $encrypted_a85afbccab54_key \
     -iv $encrypted_a85afbccab54_iv \
-    -in rowing-timer-deploy.enc \
+    -in /tmp/rowing-timer-deploy.enc \
     -out rowing-timer-deploy \
     -d
   chmod 600 rowing-timer-deploy
