@@ -45,7 +45,7 @@ if [ $TRAVIS ]; then
 fi
 
 git remote -v
-git push origin gh-pages
+git push origin HEAD:gh-pages
 
 # reset to master
 if ! [ $CI ]; then
