@@ -1,4 +1,4 @@
-#!/bin/bash -ex
+#!/bin/bash -e
 
 if [ $TRAVIS_PULL_REQUEST != false ] || [ $TRAVIS_BRANCH != master ]; then
   echo not deploying since this isn\'t the master branch
@@ -10,7 +10,7 @@ if ! [ -e build ]; then
   exit 2
 fi
 
-echo deploying
+echo deploying...
 
 hash=`git rev-parse --short HEAD`
 
@@ -18,8 +18,8 @@ cp rowing-timer-deploy.enc /tmp
 
 git fetch origin gh-pages
 git checkout FETCH_HEAD
-cp -r build/* ./
-rm -rf build
+mv build/* ./
+rm -r build
 echo node_modules >> .git/info/exclude
 
 if ! git diff 2>&1 1>/dev/null; then
