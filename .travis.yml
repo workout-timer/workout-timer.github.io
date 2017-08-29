@@ -3,4 +3,10 @@ node_js: ["node"]
 cache:
   directories:
   - node_modules
+
+env:
+- PUBLIC_URL=/rowing-timer
+
 script: npm run build && npm test
+
+after_success: bin/deploy
