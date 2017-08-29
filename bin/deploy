@@ -17,6 +17,12 @@ hash=`git rev-parse --short HEAD`
 git checkout gh-pages
 cp -r build/* ./
 rm -rf build
+
+if ! git diff 2>&1 1>/dev/null; then
+  echo no changes, exiting
+  exit
+fi
+
 git add .
 git commit -am "deploying master@$hash"
 
