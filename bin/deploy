@@ -15,7 +15,7 @@ echo deploying
 hash=`git rev-parse --short HEAD`
 
 git checkout gh-pages
-cp build/* ./
+cp -r build/* ./
 rm -rf build
 git add .
 git commit -am "deploying master@$hash"
