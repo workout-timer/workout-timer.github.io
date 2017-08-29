@@ -5,10 +5,10 @@ if [ $TRAVIS_PULL_REQUEST = false ] || [ $TRAVIS_BRANCH != master ]; then
   exit
 fi
 
-# fake build step
-rm -rf build || true
-mkdir build
-cp src/* build/
+if ! [ -e build ]; then
+  echo build directory does not exist >&2
+  exit 2
+fi
 
 echo deploying
 

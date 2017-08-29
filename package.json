@@ -2,9 +2,17 @@
   "name": "rowing-timer",
   "version": "1.0.0",
   "description": "QUADS OF THE GODS",
-  "main": "index.js",
+  "dependencies": {
+    "basscss": "^7.1.1",
+    "react": "^15.6.1",
+    "react-dom": "^15.6.1",
+    "react-scripts": "1.0.12"
+  },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject"
   },
   "repository": {
     "type": "git",
