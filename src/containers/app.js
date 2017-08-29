@@ -2,11 +2,12 @@ import React from 'react';
 import {connect} from 'react-redux';
 
 import Start from '../ui/start';
+import {start} from '../actions';
 
 const mapStateToProps = state => ({workoutStarted: !!state.currentWorkout});
 
 const mapDispatchToProps =
-  dispatch => ({onStartWorkoutClicked: () => dispatch({type: 'start'})});
+  dispatch => ({onStartWorkoutClicked: () => dispatch(start())});
 
 const App = ({workoutStarted, onStartWorkoutClicked}) =>
     workoutStarted?
