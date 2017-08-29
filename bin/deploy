@@ -14,10 +14,8 @@ echo deploying
 
 hash=`git rev-parse --short HEAD`
 
-git remote -v # remove this line when it's working
 git fetch origin gh-pages
-
-git checkout gh-pages
+git checkout FETCH_HEAD
 cp -r build/* ./
 rm -rf build
 
