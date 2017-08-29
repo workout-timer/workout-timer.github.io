@@ -44,8 +44,9 @@ if [ $TRAVIS ]; then
   ssh-add rowing-timer-deploy
 fi
 
+git remote add ssh-origin git@github.com:aaronj1335/rowing-timer.git
 git remote -v
-git push origin HEAD:gh-pages
+git push ssh-origin HEAD:gh-pages
 
 # reset to master
 if ! [ $CI ]; then
