@@ -4,6 +4,7 @@
   "description": "QUADS OF THE GODS",
   "dependencies": {
     "basscss": "^7.1.1",
+    "flow-bin": "^0.53.1",
     "react": "^15.6.1",
     "react-dom": "^15.6.1",
     "react-redux": "^5.0.6",
@@ -13,6 +14,7 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
+    "flow": "[ CI = true ] && flow || flow-watch",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
   },
@@ -25,5 +27,8 @@
   "bugs": {
     "url": "https://github.com/aaronj1335/rowing-timer/issues"
   },
-  "homepage": "https://github.com/aaronj1335/rowing-timer#readme"
+  "homepage": "https://github.com/aaronj1335/rowing-timer#readme",
+  "devDependencies": {
+    "flow-watch": "^1.1.1"
+  }
 }

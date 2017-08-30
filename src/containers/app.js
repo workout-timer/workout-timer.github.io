@@ -1,17 +1,31 @@
+// @flow
+
 import React from 'react';
 import {connect} from 'react-redux';
 
+import {start, nextStep} from '../actions';
+import type {State} from '../reducer';
 import Start from '../ui/start';
-import {start} from '../actions';
+import Workout from '../ui/workout';
 
-const mapStateToProps = state => ({workoutStarted: !!state.currentWorkout});
+const mapStateToProps = ({current}: State) => ({
+  workoutStarted: !!current,
+  workout: current,
+});
 
-const mapDispatchToProps =
-  dispatch => ({onStartWorkoutClicked: () => dispatch(start())});
+const mapDispatchToProps = dispatch => ({
+  onStartWorkoutClicked: () => dispatch(start()),
+  onNextStepClicked: () => dispatch(nextStep())
+});
 
-const App = ({workoutStarted, onStartWorkoutClicked}) =>
+const App = ({
+    workoutStarted,
+    workout,
+    onStartWorkoutClicked,
+    onNextStepClicked
+  }) =>
     workoutStarted?
-      <div>flerg</div> :
+      <Workout workout={workout} onNextStepClicked={onNextStepClicked}/> :
       <Start onStartWorkoutClicked={onStartWorkoutClicked}/>;
 
 export default connect(mapStateToProps, mapDispatchToProps)(App)
