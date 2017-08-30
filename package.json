@@ -14,7 +14,7 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "flow": "[ CI = true ] && flow || flow-watch",
+    "flow": "[ $CI = true ] && flow || flow-watch",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
   },
