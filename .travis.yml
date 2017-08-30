@@ -3,7 +3,7 @@ node_js: ["node"]
 cache: yarn
 
 env:
-- PUBLIC_URL=/rowing-timer
+- PUBLIC_URL=/
 
 script: yarn flow && yarn build && yarn test
 

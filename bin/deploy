@@ -1,7 +1,7 @@
 #!/bin/bash -e
 
-if [ $TRAVIS_PULL_REQUEST != false ] || [ $TRAVIS_BRANCH != master ]; then
-  echo not deploying since this isn\'t the master branch
+if [ $TRAVIS_PULL_REQUEST != false ] || [ $TRAVIS_BRANCH != dev ]; then
+  echo not deploying since this isn\'t the dev branch
   exit
 fi
 
@@ -14,9 +14,9 @@ echo deploying...
 
 hash=`git rev-parse --short HEAD`
 
-cp rowing-timer-deploy.enc /tmp
+cp workout-timer-deploy-key.enc /tmp
 
-git fetch origin gh-pages
+git fetch origin master
 git checkout FETCH_HEAD
 cp -r build/* ./
 rm -rf build
@@ -28,7 +28,7 @@ if ! git diff 2>&1 1>/dev/null; then
 fi
 
 git add .
-git commit -am "deploying master@$hash"
+git commit -am "deploying dev@$hash"
 
 # if we're in a travis build, decrypt and use the deploy key (otherwise just
 # rely on some existing authentication)
@@ -36,19 +36,19 @@ if [ $TRAVIS ]; then
   openssl aes-256-cbc \
     -K $encrypted_a85afbccab54_key \
     -iv $encrypted_a85afbccab54_iv \
-    -in /tmp/rowing-timer-deploy.enc \
-    -out rowing-timer-deploy \
+    -in /tmp/workout-timer-deploy-key.enc \
+    -out workout-timer-deploy-key \
     -d
-  chmod 600 rowing-timer-deploy
+  chmod 600 workout-timer-deploy-key
   eval `ssh-agent -s`
-  ssh-add rowing-timer-deploy
+  ssh-add workout-timer-deploy-key
 fi
 
-git remote add ssh-origin git@github.com:aaronj1335/rowing-timer.git
+git remote add ssh-origin git@github.com:workout-timer/workout-timer.github.io.git
 git remote -v
-git push ssh-origin HEAD:gh-pages
+git push ssh-origin HEAD:master
 
-# reset to master
+# reset to dev
 if ! [ $CI ]; then
-  git checkout master
+  git checkout dev
 fi
