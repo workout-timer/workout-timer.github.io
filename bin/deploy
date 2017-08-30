@@ -1,7 +1,14 @@
 #!/bin/bash -e
 
-if [ $TRAVIS_PULL_REQUEST != false ] || [ $TRAVIS_BRANCH != dev ]; then
-  echo not deploying since this isn\'t the dev branch
+if [ "$TRAVIS" ]; then
+  if [ "$TRAVIS_PULL_REQUEST" != false ] || [ "$TRAVIS_BRANCH" != dev ]; then
+    echo not deploying since this isn\'t the dev branch
+    exit
+  fi
+fi
+
+if [ "`git rev-parse --abbrev-ref HEAD`" = master ]; then
+  echo you can\'t deploy from the master branch
   exit
 fi
 
