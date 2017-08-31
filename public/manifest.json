@@ -1,5 +1,8 @@
 {
  "name": "Workout Timer",
+ "short_name": "Workout Timer",
+ "start_url": "/",
+ "display": "standalone",
  "icons": [
   {
    "src": "\/android-icon-36x36.png",
