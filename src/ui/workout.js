@@ -1,5 +1,5 @@
 // @flow
-import React, {Component} from 'react';
+import {h, Component} from 'preact'; // eslint-disable-line no-unused-vars
 
 import BottomButton from './bottom-button';
 import type {Workout as WorkoutType, Rep} from './../reducer';

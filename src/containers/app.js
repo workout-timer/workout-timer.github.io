@@ -1,7 +1,7 @@
 // @flow
 
-import React from 'react';
-import {connect} from 'react-redux';
+import {h} from 'preact'; // eslint-disable-line no-unused-vars
+import {connect} from 'preact-redux';
 
 import {start, nextStep} from '../actions';
 import type {State} from '../reducer';

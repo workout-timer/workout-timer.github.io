@@ -1,7 +1,6 @@
 import 'basscss/css/basscss.css';
-import React from 'react';
-import {render} from 'react-dom';
-import {Provider} from 'react-redux';
+import {h, render} from 'preact'; // eslint-disable-line no-unused-vars
+import {Provider} from 'preact-redux';
 import {createStore} from 'redux';
 
 import './index.css';

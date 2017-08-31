@@ -1,4 +1,4 @@
-import React from 'react';
+import {h} from 'preact'; // eslint-disable-line no-unused-vars
 
 export default ({onClick, children}) =>
   <div className="absolute right-0 bottom-0 left-0 p4">

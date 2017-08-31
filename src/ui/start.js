@@ -1,4 +1,4 @@
-import React from 'react';
+import {h} from 'preact'; // eslint-disable-line no-unused-vars
 
 import BottomButton from './bottom-button';
 import logo from '../row.svg';
