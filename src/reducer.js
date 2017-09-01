@@ -40,7 +40,7 @@ export default (state: State = {}, action: Action): State => {
           current: {
             start: state.current.start,
             reps: [
-              ...state.current.reps.slice(0, state.current.reps.length - 2),
+              ...state.current.reps.slice(0, state.current.reps.length - 1),
               {
                 ...lastRep,
                 end: new Date(),
