@@ -17,13 +17,15 @@ const RepView = ({lastRep, onNextStepClicked}) =>
   </div>;
 
 const RestView = ({lastRep, seconds, onNextStepClicked}) =>
-  <div>
+  <div className="bg-blue white vfit">
     <h1 className="center">
       NOW REST
       <br/>
       <span style={{fontSize: '3em'}}>{(seconds / 1000).toFixed(2)}</span>
     </h1>
-    <BottomButton onClick={onNextStepClicked}>LET'S GO AGAIN</BottomButton>
+    <BottomButton onClick={onNextStepClicked} buttonClassName="bg-white blue">
+      LETS GO AGAIN
+    </BottomButton>
   </div>;
 
 export default class Workout extends Component<WorkoutProps, any> {
