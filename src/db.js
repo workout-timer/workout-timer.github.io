@@ -1,3 +1,5 @@
+// @flow
+
 /** thanks jake https://github.com/jakearchibald/idb-keyval */
 
 var keyValStore;
@@ -47,17 +49,17 @@ export class KeyValStore {
         store.put(value, key));
   }
 
-  keys(): Promise<Array<string>> {
-    const keys = [];
+  all(): Promise<Array<string>> {
+    const values = [];
     return this.transact('readonly', (store: IDBObjectStore) => {
-        const cursor = (store.openKeyCursor || store.openCursor).call(store);
+        const cursor: IDBCursor = (store.openKeyCursor || store.openCursor).call(store);
         cursor.onsuccess = () => {
           if (!cursor.result) return;
-          keys.push(cursor.result.key);
+          keys.push(cursor.result.value);
           cursor.result.continue();
         };
       })
-      .then(() => keys);
+      .then(() => values);
   }
 }
 

@@ -7,8 +7,8 @@ import type {Workout as WorkoutType, Rep} from './../reducer';
 type WorkoutProps = {workout: WorkoutType, onNextStepClicked: () => any}
 
 const RepView = ({lastRep, onNextStepClicked}) =>
-  <div>
-    <h1 className="center">
+  <div className="flex-auto flex flex-column">
+    <h1 className="center flex-grow">
       <span style={{fontSize: '3em'}}>{lastRep.count}</span>
       <br/>
       REPS
@@ -17,8 +17,8 @@ const RepView = ({lastRep, onNextStepClicked}) =>
   </div>;
 
 const RestView = ({lastRep, seconds, onNextStepClicked}) =>
-  <div className="bg-blue white vfit">
-    <h1 className="center">
+  <div className="flex-auto flex flex-column bg-blue white">
+    <h1 className="center flex-grow">
       NOW REST
       <br/>
       <span style={{fontSize: '3em'}}>{(seconds / 1000).toFixed(2)}</span>

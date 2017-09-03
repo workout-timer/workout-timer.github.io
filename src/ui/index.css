@@ -6,3 +6,8 @@ html, body, #root, .vfit {
   height: 100%;
   overflow: auto;
 }
+
+path {
+  color: white;
+  fill: white;
+}
